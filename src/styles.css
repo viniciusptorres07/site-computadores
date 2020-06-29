@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;    
+    /*background-color: blue;*/
+}
+
+.container-fluid {
+    width: 100%;
+    height: 100%;
+    /*background-color: green;*/    
+}
+
+#cabecalho, #rodape{
+    background-color: #343a40;
+    min-height: 5%;
+}
+
+#corpo{
+    min-height: 90%;     
+}
+
+#menu {
+    background-color: rgb(230, 238, 240);    
+}
+
+#menu a {
+    /*color: rgb(50, 50, 50);*/
+    font-weight: bold;    
+}
+
+small {
+    color: #ff8080;    
+}
+
+#titulo:hover {
+    background-color: #343a40;
+}

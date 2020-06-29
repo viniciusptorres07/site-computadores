@@ -1,0 +1,24 @@
+<h1>Apagar computadores</h1>
+<div class="p-1" id="status">
+    <p>Insira a ID do computador que deseja apagar abaixo ou, se preferir, clique em "Apagar Tudo" para apagar todos os computadores cadastrados.<br>
+    Caso não saiba a ID do computador, clique no botão "Listar" no menu à esquerda e pesquise pelo computador desejado.</p>
+</div>
+<div id="divnavbar">
+    <nav class="navbar navbar-light bg-white" style="background-color: none" id="navbar">    
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search" id="filtro">        
+            <button type="button" class="btn btn-success mr-1" onclick="apagar1()">Enviar</button>
+            <button type="button" class="btn btn-danger mr-1" onclick="apagartudo()">Apagar Tudo</button>
+        </form>
+    </nav>
+</div>
+<div class="table-responsive" id="divtabela">
+    <table class="table table-striped table-bordered" id="tabela">
+        <thead id="tabcabecalho"></thead>
+        <tbody id="tabcorpo"></tbody>
+    </table>
+    <div class="form-group invisible" id="botoes">
+        <button type="submit" class="btn btn-danger mr-1" onclick="apagar2()">Apagar</button>
+        <button type="reset" class="btn btn-secondary" onclick="location.href='/delete'">Cancelar</button>      
+    </div>
+</div>

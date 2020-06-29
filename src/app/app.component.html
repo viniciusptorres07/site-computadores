@@ -1,0 +1,22 @@
+
+<div class="container-fluid">
+  <div class="row" id="cabecalho">
+    <h2 class="ml-3"><a id="titulo" class="badge badge-dark" href="/">Site de Cadastro de computadores</a></h2>
+  </div>
+  <div class="row" id="corpo">
+    <div class="col list-group p-3" id="menu">
+      <h3>Menu</h3>      
+      <a href="/" class="list-group-item list-group-item-action list-group-item-success">Início</a>
+      <a href="/create" class="list-group-item list-group-item-action list-group-item-success">Registrar</a>
+      <a href="/read" class="list-group-item list-group-item-action list-group-item-success">Listar</a>
+      <a href="/update" class="list-group-item list-group-item-action list-group-item-success">Alterar</a>
+      <a href="/delete" class="list-group-item list-group-item-action list-group-item-success">Apagar</a>
+    </div>
+    <div class="col-11" id="formulario">
+      <router-outlet></router-outlet>
+    </div>        
+  </div>
+  <div class="row justify-content-center" id="rodape">
+    <h4><span class="badge badge-dark mt-2 font-weight-normal">2020 Site de Cadastro de Computadores. Feito por Vinicius Pereira Torres.</span></h4>
+  </div>
+</div>

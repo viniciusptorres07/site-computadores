@@ -1,0 +1,115 @@
+<h1>Alterar computadores</h1>
+<div class="p-1" id="status">
+    <p>Insira a ID do computador que deseja alterar abaixo. Caso não saiba a ID, clique no botão "Listar" no menu à esquerda e pesquise pelo computador desejado.</p>
+</div>
+<div id="divnavbar">
+    <nav class="navbar navbar-light bg-white" style="background-color: none" id="navbar">    
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search" id="filtro">        
+            <button type="button" class="btn btn-success mr-1" onclick="alterar1()">Enviar</button>
+        </form>
+    </nav>
+</div>
+<div id="teste"><p></p></div>
+<div class="invisible" id="alterar">
+    <form id="formulario2" onsubmit="alterar2()">    
+    <div class="form-group">
+      <h4>Placa-Mãe</h4>
+      <div class="form-row">
+        <div class="col">
+          <label for="validationCustom01">Marca:</label>
+          <input type="text" class="form-control" id="altcampo1" placeholder="Ex: Asus" required>
+          <div id="fbaltcampo1"></div>
+        </div>
+        <div class="col">
+          <label for="validationCustom02">Modelo:</label>
+          <input type="text" class="form-control" id="altcampo2" placeholder="Ex: Prime A320M-K/BR" required>
+          <div id="fbaltcampo2"></div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <h4>Memória RAM</h4>
+      <div class="form-row">
+        <div class="col">
+          <label for="exampleFormControlSelect1">Quantidade:</label>
+          <select class="form-control" id="altcampo3">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>                
+          </select>
+        </div>
+        <div class="col">
+          <label for="exampleFormControlSelect1">Capacidade:</label>
+          <select class="form-control" id="altcampo4">            
+            <option>2GB</option>
+            <option>4GB</option>
+            <option>8GB</option>
+            <option>16GB</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <h4>Disco Rígido (HD)</h4>
+      <div class="form-row">
+        <div class="col">
+          <label for="exampleFormControlSelect1">Quantidade:</label>
+          <select class="form-control" id="altcampo5">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>                
+          </select>
+        </div>
+        <div class="col">
+          <label for="exampleFormControlSelect1">Capacidade:</label>
+          <select class="form-control" id="altcampo6">            
+            <option>1TB</option>
+            <option>2TB</option>
+            <option>3TB</option>
+            <option>4TB</option>            
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <h4>Fonte</h4>
+      <div class="form-row">
+        <div class="col">
+          <label for="validationCustom01">Marca:</label>
+          <input type="text" class="form-control" id="altcampo7" placeholder="Ex: Corsair" required>
+          <div id="fbaltcampo7"></div>
+        </div>
+        <div class="col">
+          <label for="validationCustom02">Modelo:</label>
+          <input type="text" class="form-control" id="altcampo8" placeholder="Ex: RM850x" required>
+          <div id="fbaltcampo8"></div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <h4>Processador</h4>
+      <div class="form-row">
+        <div class="col">
+          <label for="exampleFormControlSelect1">Marca:</label>
+          <select class="form-control" id="altcampo9">
+            <option>Intel</option>
+            <option>AMD</option>                
+          </select>
+        </div>            
+        <div class="col">
+          <label for="validationCustom02">Velocidade:</label>
+          <input type="text" class="form-control" id="altcampo10" placeholder="Ex: 3.0 GHz" required>
+          <div id="fbaltcampo10"></div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-success mr-1">Enviar</button>      
+      <button type="reset" class="btn btn-secondary mr-1" onclick="resetar()">Limpar</button>
+      <button type="button" class="btn btn-info mr-1" onclick="location.href='/update'">Voltar</button>      
+    </div>                
+  </form>
+</div>

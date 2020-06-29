@@ -1,0 +1,103 @@
+<h1>Registrar novo computador</h1>
+<div class="p-1" id="status">
+  <p>Insira os dados do computador a ser cadastrado no formulário abaixo. Todos os campos devem ser preenchidos.</p>
+</div>
+<form id="formulario" onsubmit="registrar()">
+    <div class="form-group">
+      <h4>Placa-Mãe</h4>
+      <div class="form-row">
+        <div class="col">
+          <label for="validationCustom01">Marca:</label>
+          <input type="text" class="form-control" id="campo1" placeholder="Ex: Asus" required/>
+          <div id="fbcampo1"></div>          
+        </div>
+        <div class="col">
+          <label for="validationCustom02">Modelo:</label>
+          <input type="text" class="form-control" id="campo2" placeholder="Ex: Prime A320M-K/BR" required/>
+          <div id="fbcampo2"></div>          
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <h4>Memória RAM</h4>
+      <div class="form-row">
+        <div class="col">
+          <label for="exampleFormControlSelect1">Quantidade:</label>
+          <select class="form-control" id="campo3">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>                
+          </select>
+        </div>
+        <div class="col">
+          <label for="exampleFormControlSelect1">Capacidade:</label>
+          <select class="form-control" id="campo4">            
+            <option>2GB</option>
+            <option>4GB</option>
+            <option>8GB</option>
+            <option>16GB</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <h4>Disco Rígido (HD)</h4>
+      <div class="form-row">
+        <div class="col">
+          <label for="exampleFormControlSelect1">Quantidade:</label>
+          <select class="form-control" id="campo5">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>                
+          </select>
+        </div>
+        <div class="col">
+          <label for="exampleFormControlSelect1">Capacidade:</label>
+          <select class="form-control" id="campo6">            
+            <option>1TB</option>
+            <option>2TB</option>
+            <option>3TB</option>
+            <option>4TB</option>            
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <h4>Fonte</h4>
+      <div class="form-row">
+        <div class="col">
+          <label for="validationCustom01">Marca:</label>
+          <input type="text" class="form-control" id="campo7" placeholder="Ex: Corsair" required/>
+          <div id="fbcampo7"></div>          
+        </div>
+        <div class="col">
+          <label for="validationCustom02">Modelo:</label>
+          <input type="text" class="form-control" id="campo8" placeholder="Ex: RM850x" required/>
+          <div id="fbcampo8"></div>          
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <h4>Processador</h4>
+      <div class="form-row">
+        <div class="col">
+          <label for="exampleFormControlSelect1">Marca:</label>
+          <select class="form-control" id="campo9">
+            <option>Intel</option>
+            <option>AMD</option>                
+          </select>
+        </div>            
+        <div class="col">
+          <label for="validationCustom02">Velocidade:</label>
+          <input type="text" class="form-control" id="campo10" placeholder="Ex: 3.0 GHz" required/>
+          <div id="fbcampo10"></div>          
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-success mr-1" onclick="validar()">Enviar</button>
+      <button type="reset" class="btn btn-secondary" onclick="resetar()">Limpar</button>      
+    </div>                
+</form>  
