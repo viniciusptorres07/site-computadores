@@ -1,26 +1,35 @@
 <h1>Listar computadores</h1>
 <div class="p-1" id="status">
-    <p>Escolha uma categoria e insira um termo para pesquisar abaixo. Caso queira listar todos os computadores, deixe a caixa de pesquisa em branco.</p>
+    <p>Escolha uma categoria, ordem de exibição e insira um termo para pesquisar abaixo. Caso queira listar todos os computadores, deixe a caixa de pesquisa em branco.</p>
 </div>
 <nav class="navbar navbar-light bg-white" style="background-color: none">
     <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search" id="filtro">
         <div class="dropdown mr-2" >
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Número ID
             </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <button class="dropdown-item" type="button" onclick="filtrar(this.innerHTML)">Número ID</button>
+              <button class="dropdown-item" type="button" onclick="filtrar(this.innerHTML)">Marca Placa-mãe</button>
+              <button class="dropdown-item" type="button" onclick="filtrar(this.innerHTML)">Modelo Placa-mãe</button>
+              <button class="dropdown-item" type="button" onclick="filtrar(this.innerHTML)">Quantidade RAM</button>
+              <button class="dropdown-item" type="button" onclick="filtrar(this.innerHTML)">Capacidade RAM</button>
+              <button class="dropdown-item" type="button" onclick="filtrar(this.innerHTML)">Quantidade HD</button>
+              <button class="dropdown-item" type="button" onclick="filtrar(this.innerHTML)">Capacidade HD</button>
+              <button class="dropdown-item" type="button" onclick="filtrar(this.innerHTML)">Marca Fonte</button>
+              <button class="dropdown-item" type="button" onclick="filtrar(this.innerHTML)">Modelo Fonte</button>
+              <button class="dropdown-item" type="button" onclick="filtrar(this.innerHTML)">Marca Processador</button>
+              <button class="dropdown-item" type="button" onclick="filtrar(this.innerHTML)">Velocidade Processador</button>              
+            </div>            
+        </div>
+        <div class="dropdown mr-2" >
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Crescente
+            </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <button class="dropdown-item" type="button" value="Número ID" onclick="filtrar(this.value)">Número ID</button>
-              <button class="dropdown-item" type="button" value="Marca Placa-mãe" onclick="filtrar(this.value)">Marca Placa-mãe</button>
-              <button class="dropdown-item" type="button" value="Modelo Placa-mãe" onclick="filtrar(this.value)">Modelo Placa-mãe</button>
-              <button class="dropdown-item" type="button" value="Quantidade RAM" onclick="filtrar(this.value)">Quantidade RAM</button>
-              <button class="dropdown-item" type="button" value="Capacidade RAM" onclick="filtrar(this.value)">Capacidade RAM</button>
-              <button class="dropdown-item" type="button" value="Quantidade HD" onclick="filtrar(this.value)">Quantidade HD</button>
-              <button class="dropdown-item" type="button" value="Capacidade HD" onclick="filtrar(this.value)">Capacidade HD</button>
-              <button class="dropdown-item" type="button" value="Marca Fonte" onclick="filtrar(this.value)">Marca Fonte</button>
-              <button class="dropdown-item" type="button" value="Modelo Fonte" onclick="filtrar(this.value)">Modelo Fonte</button>
-              <button class="dropdown-item" type="button" value="Marca Processador" onclick="filtrar(this.value)">Marca Processador</button>
-              <button class="dropdown-item" type="button" value="Velocidade Processador" onclick="filtrar(this.value)">Velocidade Processador</button>              
+              <button class="dropdown-item" type="button" onclick="ordenar(this.innerHTML)">Crescente</button>
+              <button class="dropdown-item" type="button" onclick="ordenar(this.innerHTML)">Decrescente</button>                            
             </div>            
         </div>
         <button type="button" class="btn btn-success mr-1" onclick="listar()">Enviar</button>

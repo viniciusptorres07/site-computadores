@@ -43,62 +43,81 @@ function registrar() {
 }
 function listar() {      
     var countlocst = localStorage.getItem("countlocst");
-    localStorage.removeItem("countlocst");                     
-    document.getElementById("tabcabecalho").innerHTML = "";
+    localStorage.removeItem("countlocst");   
     document.getElementById("tabcorpo").innerHTML = "";
-    document.getElementById("tabcabecalho").innerHTML += ("<tr><th scope='col'>ID</th><th scope='col'>Placa-mãe</th><th scope='col'>Modelo</th>"+
+    document.getElementById("tabcabecalho").innerHTML = ("<tr><th scope='col'>ID</th><th scope='col'>Placa-mãe</th><th scope='col'>Modelo</th>"+
     "<th scope='col'>Qtd RAM</th><th scope='col'>Capacidade</th><th scope='col'>Qtd HD</th><th scope='col'>Capacidade</th><th scope='col'>Fonte</th>"+
     "<th scope='col'>Modelo</th><th scope='col'>Processador</th><th scope='col'>Velocidade</th></tr>");      
-    var pesquisa = document.getElementById("filtro").value;
+    var p1, p2, index, pesquisa = document.getElementById("filtro").value;     
     Object.keys(localStorage).forEach(function(key){
-        var test = JSON.parse(localStorage.getItem(key));                
-        for (let index in test){ 
-            var p1, p2, cont = 0;                    
-            switch(document.getElementById("dropdownMenu2").innerHTML) {                         
-                case "Marca Placa-mãe":
-                    p1 = JSON.stringify(test.Marca_Placa_Mae).toLowerCase();
-                    break;
-                case "Modelo Placa-mãe":
-                    p1 = JSON.stringify(test.Modelo_Placa_Mae).toLowerCase();
-                    break;
-                case "Quantidade RAM":
-                    p1 = JSON.stringify(test.Quantidade_RAM).toLowerCase();
-                    break;
-                case "Capacidade RAM":
-                    p1 = JSON.stringify(test.Capacidade_RAM).toLowerCase();
-                    break;
-                case "Quantidade HD":
-                    p1 = JSON.stringify(test.Quantidade_HD).toLowerCase();
-                    break;
-                case "Capacidade HD":
-                    p1 = JSON.stringify(test.Capacidade_HD).toLowerCase();
-                    break;
-                case "Marca Fonte":
-                    p1 = JSON.stringify(test.Marca_Fonte).toLowerCase();
-                    break;
-                case "Modelo Fonte":
-                    p1 = JSON.stringify(test.Modelo_Fonte).toLowerCase();
-                    break;
-                case "Marca Processador":
-                    p1 = JSON.stringify(test.Marca_Processador).toLowerCase();
-                    break;
-                case "Velocidade Processador":
-                    p1 = JSON.stringify(test.Velocidade_Processador).toLowerCase();
-                    break;
-                default:              
-                    p1 = JSON.stringify(test.ID).toLowerCase();      
-            }                               
-            p2 = pesquisa.toLowerCase();          
-            if(p1.includes(p2)){
-                document.getElementById("tabcorpo").innerHTML += ("<tr><td>"+test.ID+"</td><td>"+test.Marca_Placa_Mae+"</td><td>"+test.Modelo_Placa_Mae+
-                "</td><td>"+test.Quantidade_RAM+"</td><td>"+test.Capacidade_RAM+"</td><td>"+test.Quantidade_HD+"</td><td>"+test.Capacidade_HD+
-                "</td><td>"+test.Marca_Fonte+"</td><td>"+test.Modelo_Fonte+"</td><td>"+test.Marca_Processador+"</td><td>"+test.Velocidade_Processador+"</td></tr>");            
+        var test = JSON.parse(localStorage.getItem(key));
+        switch(document.getElementById("dropdownMenu1").innerHTML) {                         
+            case "Marca Placa-mãe":
+                p1 = JSON.stringify(test.Marca_Placa_Mae).toLowerCase(), index = 1;
                 break;
-            }                             
-        }                                      
+            case "Modelo Placa-mãe":
+                p1 = JSON.stringify(test.Modelo_Placa_Mae).toLowerCase(), index = 2;
+                break;
+            case "Quantidade RAM":
+                p1 = JSON.stringify(test.Quantidade_RAM).toLowerCase(), index = 3;
+                break;
+            case "Capacidade RAM":
+                p1 = JSON.stringify(test.Capacidade_RAM).toLowerCase(), index = 4;
+                break;
+            case "Quantidade HD":
+                p1 = JSON.stringify(test.Quantidade_HD).toLowerCase(), index = 5;
+                break;
+            case "Capacidade HD":
+                p1 = JSON.stringify(test.Capacidade_HD).toLowerCase(), index = 6;
+                break;
+            case "Marca Fonte":
+                p1 = JSON.stringify(test.Marca_Fonte).toLowerCase(), index = 7;
+                break;
+            case "Modelo Fonte":
+                p1 = JSON.stringify(test.Modelo_Fonte).toLowerCase(), index = 8;
+                break;
+            case "Marca Processador":
+                p1 = JSON.stringify(test.Marca_Processador).toLowerCase(), index = 9;
+                break;
+            case "Velocidade Processador":
+                p1 = JSON.stringify(test.Velocidade_Processador).toLowerCase(), index = 10;
+                break;
+            default:              
+                p1 = JSON.stringify(test.ID).toLowerCase(), index = 0;      
+        }                
+        p2 = pesquisa.toLowerCase();          
+        if(p1.includes(p2)){
+            document.getElementById("tabcorpo").innerHTML += ("<tr id='row"+key+"'><td>"+test.ID+"</td><td>"+test.Marca_Placa_Mae+"</td><td>"+test.Modelo_Placa_Mae+
+            "</td><td>"+test.Quantidade_RAM+"</td><td>"+test.Capacidade_RAM+"</td><td>"+test.Quantidade_HD+"</td><td>"+test.Capacidade_HD+
+            "</td><td>"+test.Marca_Fonte+"</td><td>"+test.Modelo_Fonte+"</td><td>"+test.Marca_Processador+"</td><td>"+test.Velocidade_Processador+"</td></tr>");           
+        }                                    
     });
     localStorage.setItem("countlocst", countlocst);
-    var table = document.getElementById("tabela");            
+    var ordem, aux, table = document.getElementById("tabela");
+    switch(document.getElementById("dropdownMenu2").innerHTML) {
+        case "Decrescente":
+            ordem = 0;
+            break;
+        default:
+            ordem = 1;
+    }    
+    for(var i=table.rows.length-1; i>=1; i--){
+        for(var j=1; j<i; j++){            
+            if (ordem){
+                if (table.rows[j].cells[index].innerHTML > table.rows[j+1].cells[index].innerHTML){                   
+                    aux = table.rows[j+1].innerHTML;
+                    table.rows[j+1].innerHTML = table.rows[j].innerHTML;
+                    table.rows[j].innerHTML = aux;
+                }                              
+            }else{
+                if (table.rows[j].cells[index].innerHTML < table.rows[j+1].cells[index].innerHTML){                   
+                    aux = table.rows[j+1].innerHTML;
+                    table.rows[j+1].innerHTML = table.rows[j].innerHTML;
+                    table.rows[j].innerHTML = aux;
+                }
+            }
+        }
+    }                   
     if(window.localStorage.length < 2){        
         if(window.localStorage.length == 1)
             window.localStorage.clear();        
@@ -109,6 +128,9 @@ function listar() {
     }                              
 }
 function filtrar(val){
+    document.getElementById("dropdownMenu1").innerHTML = val;      
+}
+function ordenar(val){
     document.getElementById("dropdownMenu2").innerHTML = val;      
 }
 function alterar1() {
